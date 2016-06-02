@@ -1,0 +1,25 @@
+{
+    "name": "voryx/thruway-message",
+    "type": "library",
+    "description": "WAMP2 Message Library for Thruway",
+    "keywords": [
+        "thruway",
+        "wamp-proto",
+        "wamp",
+        "wamp2"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matt Bonneau", "email": "matt@bonneau.net", "role": "Developer"
+        },
+        {
+            "name": "David Dan", "email": "davidwdan@gmail.com", "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Thruway\\": "src"
+        }
+    }
+}
