@@ -21,5 +21,8 @@
         "psr-4": {
             "Thruway\\": "src"
         }
+    },
+	"replace": {
+		"voryx/thruway-message": "1.*"
     }
 }
