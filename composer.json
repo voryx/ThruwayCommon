@@ -1,7 +1,7 @@
 {
-    "name": "voryx/thruway-message",
+    "name": "voryx/thruway-common",
     "type": "library",
-    "description": "WAMP2 Message Library for Thruway",
+    "description": "WAMP2 Common Library for Thruway",
     "keywords": [
         "thruway",
         "wamp-proto",

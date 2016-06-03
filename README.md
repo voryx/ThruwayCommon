@@ -1,2 +1,2 @@
-# ThruwayMessage
-WAMP2 Message Library for Thruway
+# ThruwayCommon
+WAMP2 Common Library for Thruway
