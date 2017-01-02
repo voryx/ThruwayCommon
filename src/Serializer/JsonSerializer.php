@@ -2,7 +2,6 @@
 
 namespace Thruway\Serializer;
 
-use Thruway\Exception\DeserializationException;
 use Thruway\Message\Message;
 
 /**
@@ -30,7 +29,8 @@ class JsonSerializer implements SerializerInterface
      *
      * @param string $serializedData
      * @return \Thruway\Message\Message
-     * @throws \Thruway\Exception\DeserializationException
+     * @throws \Thruway\Message\MessageException
+     * @throws \Thruway\Serializer\DeserializationException
      */
     public function deserialize($serializedData)
     {
@@ -38,9 +38,7 @@ class JsonSerializer implements SerializerInterface
             throw new DeserializationException("Error decoding json \"" . $serializedData . "\"");
         }
 
-        $msg = Message::createMessageFromArray($data);
-
-        return $msg;
+        return Message::createMessageFromArray($data);
     }
 
 }
