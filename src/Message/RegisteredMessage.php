@@ -13,7 +13,6 @@ use Thruway\Message\Traits\RequestTrait;
  */
 class RegisteredMessage extends Message
 {
-
     use RequestTrait;
 
     /**
@@ -71,5 +70,4 @@ class RegisteredMessage extends Message
     {
         $this->registrationId = $registrationId;
     }
-
 }

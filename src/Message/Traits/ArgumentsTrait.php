@@ -12,7 +12,6 @@ use Thruway\Result;
  */
 trait ArgumentsTrait
 {
-
     /**
      * @var mixed
      */
@@ -103,5 +102,4 @@ trait ArgumentsTrait
         $this->setArguments($result->getArguments());
         $this->setArgumentsKw($result->getArgumentsKw());
     }
-
 }

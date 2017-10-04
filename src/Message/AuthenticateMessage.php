@@ -11,7 +11,6 @@ namespace Thruway\Message;
  */
 class AuthenticateMessage extends Message
 {
-
     /**
      * @var mixed
      */
@@ -28,8 +27,8 @@ class AuthenticateMessage extends Message
      */
     public function __construct($signature, $extra = null)
     {
-        $this->setSignature($signature);
-        $this->setExtra($extra);
+        $this->signature = $signature;
+        $this->extra     = (object)$extra;
     }
 
     /**

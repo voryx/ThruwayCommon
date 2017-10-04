@@ -2,7 +2,6 @@
 
 namespace Thruway\Message\Traits;
 
-
 /**
  * Class RequestTrait
  * @package Thruway\Message\Traits
@@ -34,5 +33,4 @@ trait RequestTrait
     {
         $this->requestId = $requestId;
     }
-
 }

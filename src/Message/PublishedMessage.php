@@ -13,7 +13,6 @@ use Thruway\Message\Traits\RequestTrait;
  */
 class PublishedMessage extends Message
 {
-
     use RequestTrait;
 
     /**
@@ -74,5 +73,4 @@ class PublishedMessage extends Message
     {
         return [$this->getRequestId(), $this->getPublicationId()];
     }
-
 }

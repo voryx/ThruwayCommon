@@ -13,7 +13,6 @@ use Thruway\Message\Traits\RequestTrait;
  */
 class UnsubscribedMessage extends Message
 {
-
     use RequestTrait;
 
     /**
@@ -46,5 +45,4 @@ class UnsubscribedMessage extends Message
     {
         return [$this->getRequestId()];
     }
-
 }

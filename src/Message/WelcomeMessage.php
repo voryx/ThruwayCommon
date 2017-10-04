@@ -13,14 +13,12 @@ use Thruway\Message\Traits\DetailsTrait;
  */
 class WelcomeMessage extends Message
 {
-
     use DetailsTrait;
 
     /**
      * @var int
      */
     private $sessionId;
-
 
     /**
      * Constructor
@@ -33,7 +31,6 @@ class WelcomeMessage extends Message
         $this->setDetails($details);
         $this->setSessionId($sessionId);
     }
-
 
     /**
      * Get message code
@@ -73,5 +70,4 @@ class WelcomeMessage extends Message
     {
         $this->sessionId = $sessionId;
     }
-
-} 
+}

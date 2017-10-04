@@ -14,7 +14,6 @@ use Thruway\Message\Message;
  */
 interface SerializerInterface
 {
-
     /**
      * Serialize message
      *
@@ -30,5 +29,4 @@ interface SerializerInterface
      * @return \Thruway\Message\Message
      */
     public function deserialize($serializedData);
-
 }

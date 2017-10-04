@@ -12,7 +12,6 @@ use Thruway\Message\Message;
  */
 class JsonSerializer implements SerializerInterface
 {
-
     /**
      * Serialize message
      *
@@ -40,5 +39,4 @@ class JsonSerializer implements SerializerInterface
 
         return Message::createMessageFromArray($data);
     }
-
 }

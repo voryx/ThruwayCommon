@@ -9,7 +9,6 @@ namespace Thruway\Message;
  */
 abstract class Message implements \JsonSerializable
 {
-
     /**
      * Message code
      * @const int
@@ -50,7 +49,7 @@ abstract class Message implements \JsonSerializable
 
     /**
      * Get message code
-     * 
+     *
      * @return int
      */
     abstract public function getMsgCode();
@@ -73,7 +72,7 @@ abstract class Message implements \JsonSerializable
     static public function createMessageFromArray($data)
     {
         if (!is_array($data) || $data !== array_values($data)) {
-            throw new MessageException("Invalid WAMP message format");
+            throw new MessageException('Invalid WAMP message format');
         }
 
         switch ($data[0]) {
@@ -155,7 +154,7 @@ abstract class Message implements \JsonSerializable
                 return new ErrorMessage($data[1], $data[2], $data[3], $data[4], static::getArgs($data, 5),
                     static::getArgs($data, 6));
             default:
-                throw new MessageException("Unhandled message type: " . $data[0]);
+                throw new MessageException('Unhandled message type: ' . $data[0]);
         }
     }
 
@@ -188,7 +187,7 @@ abstract class Message implements \JsonSerializable
      */
     public function __toString()
     {
-        return "[" . get_class($this) . "]";
+        return '[' . get_class($this) . ']';
     }
 
     /**
@@ -220,7 +219,7 @@ abstract class Message implements \JsonSerializable
 
     /**
      * Get the args from the message data
-     * 
+     *
      * @param array $data
      * @param int $position
      * @return mixed|null
@@ -229,5 +228,4 @@ abstract class Message implements \JsonSerializable
     {
         return isset($data[$position]) ? $data[$position] : null;
     }
-
 }

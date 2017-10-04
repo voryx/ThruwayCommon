@@ -1,10 +1,9 @@
 <?php
 
-
 namespace Thruway\Message;
 
-
-class HeartbeatMessage extends Message {
+class HeartbeatMessage extends Message
+{
     /**
      * @var int
      */
@@ -23,7 +22,7 @@ class HeartbeatMessage extends Message {
      * @param $incomingSeq
      * @param $outgoingSeq
      */
-    function __construct($incomingSeq, $outgoingSeq, $discard = null)
+    public function __construct($incomingSeq, $outgoingSeq, $discard = null)
     {
         $this->setDiscard($discard);
         $this->setIncomingSeq($incomingSeq);
@@ -51,7 +50,7 @@ class HeartbeatMessage extends Message {
         $a = [$this->getIncomingSeq(), $this->getOutgoingSeq()];
 
         if (is_string($this->getDiscard())) {
-            array_push($a, $this->getDiscard());
+            $a[] = $this->getDiscard();
         }
 
         return $a;
@@ -104,6 +103,4 @@ class HeartbeatMessage extends Message {
     {
         $this->outgoingSeq = $outgoingSeq;
     }
-
-
 }

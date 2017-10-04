@@ -17,7 +17,6 @@ use Thruway\Session;
  */
 class EventMessage extends Message
 {
-
     use DetailsTrait;
     use ArgumentsTrait;
 

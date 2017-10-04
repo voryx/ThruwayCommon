@@ -13,7 +13,6 @@ use Thruway\Message\Traits\DetailsTrait;
  */
 class AbortMessage extends Message
 {
-
     use DetailsTrait;
 
     /**
@@ -33,18 +32,7 @@ class AbortMessage extends Message
     {
         parent::__construct();
 
-        $this->setDetails($details);
-        $this->setResponseURI($responseURI);
-    }
-
-
-    /**
-     * Set response URI
-     *
-     * @param mixed $responseURI
-     */
-    public function setResponseURI($responseURI)
-    {
+        $this->details     = (object)$details;
         $this->responseURI = $responseURI;
     }
 
@@ -78,5 +66,4 @@ class AbortMessage extends Message
     {
         return [(object)$this->getDetails(), $this->getResponseURI()];
     }
-
 }

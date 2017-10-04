@@ -59,7 +59,6 @@ class ChallengeMessage extends Message
         return $this->authMethod;
     }
 
-
     /**
      * @param mixed $authMethod
      */
@@ -67,5 +66,4 @@ class ChallengeMessage extends Message
     {
         $this->authMethod = $authMethod;
     }
-
 }

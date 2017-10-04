@@ -6,7 +6,6 @@ use Thruway\Message\Traits\ArgumentsTrait;
 use Thruway\Message\Traits\OptionsTrait;
 use Thruway\Message\Traits\RequestTrait;
 
-
 /**
  * Class Publish message
  * Sent by a Publisher to a Broker to publish an event.
@@ -30,7 +29,6 @@ class PublishMessage extends Message implements ActionMessageInterface
      * @var string
      */
     private $topicName;
-
 
     /**
      * @var boolean
@@ -99,11 +97,9 @@ class PublishMessage extends Message implements ActionMessageInterface
      */
     public function getAdditionalMsgFields()
     {
-
         $a = [$this->getRequestId(), $this->getOptions(), $this->getTopicName()];
 
         return array_merge($a, $this->getArgumentsForSerialization());
-
     }
 
     /**
@@ -144,9 +140,8 @@ class PublishMessage extends Message implements ActionMessageInterface
      */
     public function getActionName()
     {
-        return "publish";
+        return 'publish';
     }
-
 
     /**
      * @param $options
@@ -158,8 +153,8 @@ class PublishMessage extends Message implements ActionMessageInterface
         //Get the options that have been cast to an object
         $options = $this->getOptions();
 
-        $this->acknowledge        = isset($options->acknowledge) && $options->acknowledge === true ? true : false;
-        $this->exclude_me         = isset($options->exclude_me) && $options->exclude_me === false ? false : true;
+        $this->acknowledge        = isset($options->acknowledge) && $options->acknowledge === true;
+        $this->exclude_me         = isset($options->exclude_me) && $options->exclude_me === false;
         $this->exclude            = isset($options->exclude) && is_array($options->exclude) ? $options->exclude : [];
         $this->eligible           = isset($options->eligible) && is_array($options->eligible) ? $options->eligible : null;
         $this->eligible_authroles = []; // default to no auth roles eligible
@@ -220,7 +215,7 @@ class PublishMessage extends Message implements ActionMessageInterface
      */
     public function isWhiteListed($sessionId)
     {
-        return null === $this->getEligible() || in_array($sessionId, $this->getEligible());
+        return null === $this->getEligible() || in_array($sessionId, $this->getEligible(), true);
     }
 
     /**
@@ -269,12 +264,10 @@ class PublishMessage extends Message implements ActionMessageInterface
         if ($this->eligible_authids === null) {
             return true;
         }
-        if (in_array($authid, $this->eligible_authids)) {
+        if (in_array($authid, $this->eligible_authids, true)) {
             return true;
         }
 
         return false;
     }
 }
-
-

@@ -24,5 +24,8 @@
     },
 	"replace": {
 		"voryx/thruway-message": "1.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.5.4"
     }
 }

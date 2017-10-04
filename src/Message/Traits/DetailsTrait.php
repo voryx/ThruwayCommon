@@ -15,7 +15,6 @@ trait DetailsTrait
      */
     private $details;
 
-
     /**
      * Set abort message details
      *
@@ -23,7 +22,7 @@ trait DetailsTrait
      */
     public function setDetails($details)
     {
-        $this->details = (object) $details;
+        $this->details = (object)$details;
     }
 
     /**
@@ -42,9 +41,9 @@ trait DetailsTrait
      */
     public function addFeatures($name, \stdClass $features)
     {
-        $this->details        = isset($this->details) ? $this->details : new \stdClass();
+        $this->details        = $this->details !== null ? $this->details : new \stdClass();
         $this->details->roles = isset($this->details->roles) ? $this->details->roles : new \stdClass();
 
-        $this->details->roles->$name = (object) ["features" => $features];
+        $this->details->roles->$name = (object)['features' => $features];
     }
 }

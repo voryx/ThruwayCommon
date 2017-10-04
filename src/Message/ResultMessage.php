@@ -26,7 +26,6 @@ class ResultMessage extends Message
      */
     use ArgumentsTrait;
 
-
     /**
      * Constructor
      *
@@ -61,11 +60,8 @@ class ResultMessage extends Message
      */
     public function getAdditionalMsgFields()
     {
-
         $a = [$this->getRequestId(), $this->getDetails()];
 
         return array_merge($a, $this->getArgumentsForSerialization());
     }
-
-
 }

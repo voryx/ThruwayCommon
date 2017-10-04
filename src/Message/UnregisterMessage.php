@@ -13,7 +13,6 @@ use Thruway\Message\Traits\RequestTrait;
  */
 class UnregisterMessage extends Message
 {
-
     use RequestTrait;
 
     /**
@@ -72,6 +71,4 @@ class UnregisterMessage extends Message
     {
         $this->registrationId = $registrationId;
     }
-
-
 }

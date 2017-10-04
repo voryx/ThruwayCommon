@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Thruway\Message\Traits;
-
 
 use Thruway\Message\SubscribeMessage;
 
@@ -28,10 +26,10 @@ trait OptionsMatchTypeTrait
         $options = $this->getOptions();
         if (is_object($options)) {
             $options->match = $matchType;
-            if ($matchType == "exact") {
+            if ($matchType === 'exact') {
                 unset($options->match);
             }
         }
         $this->setOptions($options);
     }
-} 
+}

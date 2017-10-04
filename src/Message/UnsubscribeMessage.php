@@ -13,7 +13,6 @@ use Thruway\Message\Traits\RequestTrait;
  */
 class UnsubscribeMessage extends Message
 {
-
     use RequestTrait;
 
     /**
@@ -74,5 +73,4 @@ class UnsubscribeMessage extends Message
     {
         return [$this->getRequestId(), $this->getSubscriptionId()];
     }
-
 }

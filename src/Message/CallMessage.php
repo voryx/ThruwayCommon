@@ -6,7 +6,6 @@ use Thruway\Message\Traits\ArgumentsTrait;
 use Thruway\Message\Traits\OptionsTrait;
 use Thruway\Message\Traits\RequestTrait;
 
-
 /**
  * Class CallMessage
  * Call as originally issued by the Caller to the Dealer.
@@ -18,7 +17,6 @@ use Thruway\Message\Traits\RequestTrait;
  */
 class CallMessage extends Message implements ActionMessageInterface
 {
-
     use RequestTrait;
     use OptionsTrait;
     use ArgumentsTrait;
@@ -67,7 +65,6 @@ class CallMessage extends Message implements ActionMessageInterface
         $a = [$this->getRequestId(), $this->getOptions(), $this->getProcedureName()];
 
         return array_merge($a, $this->getArgumentsForSerialization());
-
     }
 
     /**
@@ -104,8 +101,6 @@ class CallMessage extends Message implements ActionMessageInterface
      */
     public function getActionName()
     {
-        return "call";
+        return 'call';
     }
-
-
 }

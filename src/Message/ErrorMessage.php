@@ -51,7 +51,6 @@ class ErrorMessage extends Message
      */
     public function __construct($errorMsgCode, $errorRequestId, $details, $errorURI, $arguments = null, $argumentsKw = null)
     {
-
         $this->setErrorRequestId($errorRequestId);
         $this->setErrorMsgCode($errorMsgCode);
         $this->setDetails($details);
@@ -94,10 +93,10 @@ class ErrorMessage extends Message
     public static function createErrorMessageFromMessage(Message $msg, $errorUri = null)
     {
         if ($errorUri === null) {
-            $errorUri = "wamp.error.unknown";
+            $errorUri = 'wamp.error.unknown';
         }
 
-        if (method_exists($msg, "getRequestId")) {
+        if (method_exists($msg, 'getRequestId')) {
             return new ErrorMessage($msg->getMsgCode(), $msg->getRequestId(), new \stdClass, $errorUri);
         }
 
@@ -207,5 +206,4 @@ class ErrorMessage extends Message
     {
         return $this->getErrorURI();
     }
-
 }

@@ -83,7 +83,7 @@ class RegisterMessage extends Message implements ActionMessageInterface
      */
     public function getActionName()
     {
-        return "register";
+        return 'register';
     }
 
     /**
@@ -93,5 +93,4 @@ class RegisterMessage extends Message implements ActionMessageInterface
     {
         $this->procedureName = $procedureName;
     }
-
 }

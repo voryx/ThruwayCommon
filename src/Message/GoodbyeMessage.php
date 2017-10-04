@@ -4,7 +4,6 @@ namespace Thruway\Message;
 
 use Thruway\Message\Traits\DetailsTrait;
 
-
 /**
  * Class GoodbyeMessage
  * Sent by a Peer to close a previously opened WAMP session. Must be echo'ed by the receiving Peer.
@@ -14,7 +13,6 @@ use Thruway\Message\Traits\DetailsTrait;
  */
 class GoodbyeMessage extends Message
 {
-
     use DetailsTrait;
 
     /**
@@ -34,7 +32,7 @@ class GoodbyeMessage extends Message
 
     /**
      * Set reason
-     * 
+     *
      * @param string $reason
      */
     public function setReason($reason)
@@ -44,8 +42,8 @@ class GoodbyeMessage extends Message
 
     /**
      * Get reason
-     * 
-     * @return string 
+     *
+     * @return string
      */
     public function getReason()
     {
@@ -72,5 +70,4 @@ class GoodbyeMessage extends Message
     {
         return [(object)$this->getDetails(), $this->getReason()];
     }
-
-} 
+}

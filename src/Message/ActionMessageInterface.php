@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Thruway\Message;
-
 
 /**
  * Interface ActionMessageInterface
@@ -12,7 +10,8 @@ namespace Thruway\Message;
  *
  * @package Thruway\Message
  */
-interface ActionMessageInterface {
+interface ActionMessageInterface
+{
     /**
      * This returns the Uri so that the authorization manager doesn't have to know
      * exactly the type of object to get the Uri
@@ -27,4 +26,4 @@ interface ActionMessageInterface {
      * @return mixed
      */
     public function getActionName();
-} 
+}

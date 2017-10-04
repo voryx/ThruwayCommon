@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Thruway\Common;
 
 /**
@@ -17,7 +16,7 @@ class Utils
     {
         $filter      = 0x1fffffffffffff; // 53 bits
         $randomBytes = openssl_random_pseudo_bytes(8);
-        list($high, $low) = array_values(unpack("N2", $randomBytes));
+        list($high, $low) = array_values(unpack('N2', $randomBytes));
         return abs(($high << 32 | $low) & $filter);
     }
 
@@ -29,7 +28,7 @@ class Utils
      */
     public static function uriIsValid($uri)
     {
-        return !!preg_match('/^([0-9a-z_]+\.)*([0-9a-z_]+)$/', $uri);
+        return (bool)preg_match('/^([0-9a-z_]+\.)*([0-9a-z_]+)$/', $uri);
     }
 
     /**
@@ -43,7 +42,7 @@ class Utils
      */
     public static function getDerivedKey($key, $salt, $iterations = 1000, $keyLen = 32)
     {
-        if (function_exists("hash_pbkdf2")) {
+        if (function_exists('hash_pbkdf2')) {
             $key = hash_pbkdf2('sha256', $key, $salt, $iterations, $keyLen, true);
         } else {
             // PHP v5.4 compatibility
@@ -72,7 +71,7 @@ class Utils
     public static function compat_pbkdf2($algo, $password, $salt, $iterations, $length = 0, $rawOutput = false)
     {
         // check for hashing algorithm
-        if (!in_array(strtolower($algo), hash_algos())) {
+        if (!in_array(strtolower($algo), hash_algos(), true)) {
             trigger_error(sprintf(
                 '%s(): Unknown hashing algorithm: %s',
                 __FUNCTION__, $algo
@@ -133,7 +132,7 @@ class Utils
             $block  = $digest;
             for ($j = 1; $j < $iterations; $j++) {
                 $digest = hash_hmac($algo, $digest, $password, true);
-                $block ^= $digest;
+                $block  ^= $digest;
             }
             $derivedKey .= $block;
         }
@@ -152,7 +151,7 @@ class Utils
     /**
      * Changes the Precision for PHP configs that default to less than 16
      */
-    static public function checkPrecision()
+    public static function checkPrecision()
     {
         if (ini_get('precision') < 16) {
             ini_set('precision', 16);

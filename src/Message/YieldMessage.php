@@ -17,7 +17,6 @@ use Thruway\Message\Traits\RequestTrait;
  */
 class YieldMessage extends Message
 {
-
     use RequestTrait;
     use OptionsTrait;
     use ArgumentsTrait;
@@ -60,5 +59,4 @@ class YieldMessage extends Message
 
         return array_merge($a, $this->getArgumentsForSerialization());
     }
-
 }

@@ -2,8 +2,6 @@
 
 namespace Thruway\Message;
 
-use Symfony\Component\Routing\Annotation\Route;
-
 /**
  * Class TestMessage
  *

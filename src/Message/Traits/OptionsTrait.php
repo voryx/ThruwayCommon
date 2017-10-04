@@ -8,7 +8,6 @@ namespace Thruway\Message\Traits;
  */
 trait OptionsTrait
 {
-
     /**
      * @var mixed
      */
@@ -29,5 +28,4 @@ trait OptionsTrait
     {
         $this->options = (object)$options;
     }
-
 }

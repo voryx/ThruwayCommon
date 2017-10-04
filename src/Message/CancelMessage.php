@@ -14,7 +14,6 @@ use Thruway\Message\Traits\RequestTrait;
  */
 class CancelMessage extends Message
 {
-
     use RequestTrait;
     use OptionsTrait;
 
@@ -50,5 +49,4 @@ class CancelMessage extends Message
     {
         return [$this->getRequestId(), (object)$this->getOptions()];
     }
-
 }

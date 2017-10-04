@@ -49,7 +49,6 @@ class HelloMessage extends Message
         $this->setAuthMethods($authMethods);
     }
 
-
     /**
      * Get message code
      *
@@ -108,5 +107,4 @@ class HelloMessage extends Message
     {
         $this->authMethods = $authMethods;
     }
-
 }

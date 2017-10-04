@@ -15,7 +15,6 @@ use Thruway\Message\Traits\RequestTrait;
  */
 class SubscribeMessage extends Message implements ActionMessageInterface
 {
-
     use RequestTrait;
     use OptionsTrait;
     use OptionsMatchTypeTrait;
@@ -99,7 +98,7 @@ class SubscribeMessage extends Message implements ActionMessageInterface
      */
     public function getActionName()
     {
-        return "subscribe";
+        return 'subscribe';
     }
 
     /**
@@ -112,7 +111,6 @@ class SubscribeMessage extends Message implements ActionMessageInterface
             return $options->match;
         }
 
-        return "exact";
+        return 'exact';
     }
-
 }

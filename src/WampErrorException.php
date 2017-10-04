@@ -18,7 +18,7 @@ class WampErrorException extends \Exception
      * @param \stdClass|null $argumentsKw
      * @param \stdClass|null $details
      */
-    function __construct($errorUri, $arguments = null, $argumentsKw = null, $details = null)
+    public function __construct($errorUri, $arguments = null, $argumentsKw = null, $details = null)
     {
         $this->setErrorUri($errorUri);
         $this->setArguments($arguments);

@@ -1,15 +1,12 @@
 <?php
 
-
 namespace Thruway\Message;
-
 
 use Thruway\Message\Traits\OptionsTrait;
 use Thruway\Message\Traits\RequestTrait;
 
 class InterruptMessage extends Message
 {
-
     use RequestTrait;
     use OptionsTrait;
 
@@ -17,7 +14,7 @@ class InterruptMessage extends Message
      * @param int $requestId
      * @param \stdClass $options
      */
-    function __construct($requestId, $options)
+    public function __construct($requestId, $options)
     {
         $this->setRequestId($requestId);
         $this->setOptions($options);
@@ -43,5 +40,4 @@ class InterruptMessage extends Message
     {
         return [$this->getRequestId(), (object)$this->getOptions()];
     }
-
 }

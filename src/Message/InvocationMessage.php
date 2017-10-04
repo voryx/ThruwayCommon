@@ -66,7 +66,6 @@ class InvocationMessage extends Message
      */
     public function getAdditionalMsgFields()
     {
-
         $a = [$this->getRequestId(), $this->getRegistrationId(), $this->getDetails()];
 
         return array_merge($a, $this->getArgumentsForSerialization());
@@ -106,5 +105,4 @@ class InvocationMessage extends Message
     {
         $this->registrationId = $registrationId;
     }
-
 }
