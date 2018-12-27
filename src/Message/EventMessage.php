@@ -141,20 +141,20 @@ class EventMessage extends Message
      */
     public function disclosePublisher(Session $session)
     {
-
         $details             = $this->getDetails();
         $details->publisher  = $session->getSessionId();
         $details->topic      = $this->topic;
         $authenticationDetails = $session->getAuthenticationDetails();
-        $details->authid     = $authenticationDetails->getAuthId();
-        $details->authrole   = $authenticationDetails->getAuthRole();
-        $details->authroles  = $authenticationDetails->getAuthRoles();
-        $details->authmethod = $authenticationDetails->getAuthMethod();
+        $details->authid             = $authenticationDetails->getAuthId();
+        $details->authrole           = $authenticationDetails->getAuthRole();
+        $details->publisher_authid   = $details->authid;
+        $details->publisher_authrole = $details->authrole;
+        $details->authroles          = $authenticationDetails->getAuthRoles();
+        $details->authmethod         = $authenticationDetails->getAuthMethod();
 
         if ($authenticationDetails->getAuthExtra() !== null) {
             $details->_thruway_authextra = $authenticationDetails->getAuthExtra();
         }
-
     }
 
     /**
