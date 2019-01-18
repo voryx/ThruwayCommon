@@ -154,7 +154,7 @@ class PublishMessage extends Message implements ActionMessageInterface
         $options = $this->getOptions();
 
         $this->acknowledge        = isset($options->acknowledge) && $options->acknowledge === true;
-        $this->exclude_me         = isset($options->exclude_me) && $options->exclude_me === false;
+        $this->exclude_me         = isset($options->exclude_me) && $options->exclude_me === false ? false : true;
         $this->exclude            = isset($options->exclude) && is_array($options->exclude) ? $options->exclude : [];
         $this->eligible           = isset($options->eligible) && is_array($options->eligible) ? $options->eligible : null;
         $this->eligible_authroles = []; // default to no auth roles eligible
