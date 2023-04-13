@@ -157,20 +157,24 @@ class PublishMessage extends Message implements ActionMessageInterface
         $this->exclude_me         = isset($options->exclude_me) && $options->exclude_me === false ? false : true;
         $this->exclude            = isset($options->exclude) && is_array($options->exclude) ? $options->exclude : [];
         $this->eligible           = isset($options->eligible) && is_array($options->eligible) ? $options->eligible : null;
-        $this->eligible_authroles = []; // default to no auth roles eligible
 
-        if (isset($options->_thruway_eligible_authroles)) {
-            if (is_array($options->_thruway_eligible_authroles)) {
-                $this->eligible_authroles = $options->_thruway_eligible_authroles;
+        $this->eligible_authroles = []; // default to no auth roles eligible
+        // Support both the standard and prefixed versions of eligible_authroles, preferring the prefixed version
+        $authroles = $options->_thruway_eligible_authroles ?? $options->eligible_authrole ?? null;
+        if (isset($authroles)) {
+            if (is_array($authroles)) {
+                $this->eligible_authroles = $authroles;
             }
         } else {
             $this->eligible_authroles = null; // null says every authrole is valid
         }
 
         $this->eligible_authids = []; // default to no authids eligible
-        if (isset($options->_thruway_eligible_authids)) {
-            if (is_array($options->_thruway_eligible_authids)) {
-                $this->eligible_authids = $options->_thruway_eligible_authids;
+        // Support both the standard and prefixed versions of eligible_authids, preferring the prefixed version
+        $authids = $options->_thruway_eligible_authids ?? $options->eligible_authid ?? null;
+        if (isset($authids)) {
+            if (is_array($authids)) {
+                $this->eligible_authids = $authids;
             }
         } else {
             $this->eligible_authids = null; // null says every authid is valid
